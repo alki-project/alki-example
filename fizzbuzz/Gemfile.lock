@@ -1,0 +1,34 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    alki (0.10.0)
+      alki-dsl (~> 0.4)
+      alki-support (~> 0.7)
+      minitest (~> 5.9, >= 5.9.1)
+    alki-console (0.4.2)
+      alki (~> 0.9, >= 0.9.1)
+      pry (~> 0.10)
+    alki-dsl (0.4.0)
+      alki-loader (~> 0.1)
+      alki-support (~> 0.7)
+    alki-loader (0.1.0)
+      alki-support (~> 0.7)
+    alki-support (0.7.0)
+    coderay (1.1.1)
+    method_source (0.8.2)
+    minitest (5.10.1)
+    pry (0.10.4)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
+    slop (3.6.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  alki
+  alki-console
+
+BUNDLED WITH
+   1.13.6
