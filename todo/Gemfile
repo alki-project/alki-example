@@ -1,0 +1,4 @@
+source "https://rubygems.org"
+gem 'alki'
+gem 'alki-console'
+gem 'alki-reload'
