@@ -38,6 +38,22 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    alki (0.10.0)
+      alki-dsl (~> 0.4)
+      alki-support (~> 0.7)
+      minitest (~> 5.9, >= 5.9.1)
+    alki-dsl (0.4.0)
+      alki-loader (~> 0.1)
+      alki-support (~> 0.7)
+    alki-loader (0.1.0)
+      alki-support (~> 0.7)
+    alki-rails (0.2.0)
+      alki (~> 0.10)
+      alki-reload (~> 0.2)
+    alki-reload (0.2.0)
+      alki (~> 0.10)
+      listen (~> 3.0)
+    alki-support (0.7.0)
     arel (7.1.4)
     builder (3.2.2)
     byebug (9.0.6)
@@ -154,6 +170,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  alki-rails
   byebug
   coffee-rails (~> 4.2)
   jbuilder (~> 2.5)
