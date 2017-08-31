@@ -13,12 +13,12 @@ GEM
       concurrent-ruby (~> 1.0)
       ice_nine (~> 0.11)
     alki-console (0.6.0)
-      alki (~> 0.12)
+      alki (~> 0.12.1)
       pry (~> 0.10)
     alki-dsl (0.5.1)
       alki-loader (~> 0.2, >= 0.2.2)
       alki-support (~> 0.7)
-    alki-loader (0.2.2)
+    alki-loader (0.2.3)
       alki-support (~> 0.7)
     alki-reload (0.3.1)
       alki (~> 0.12)
@@ -55,6 +55,7 @@ DEPENDENCIES
   alki-console
   alki-example-todo!
   alki-reload
+  alki-testing
 
 BUNDLED WITH
    1.15.3

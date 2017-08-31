@@ -17,16 +17,15 @@ describe Todo::StoreDb do
 
   describe :all do
     it 'should return all entries from store' do
-      entries = [['test','active']]
-      @store.expect :read, entries
-      @db.all.must_equal entries
+      @store.expect :read, [['test','active']]
+      @db.all.must_equal [[1,'test','active']]
     end
   end
 
   describe :add do
     it 'should add entry to end of entries' do
       expect_update [['test','active']]
-      @db.add 'test2', 'active'
+      @db.add 'test2'
       @saved.must_equal [['test','active'],['test2','active']]
     end
   end
@@ -34,38 +33,59 @@ describe Todo::StoreDb do
   describe :remove do
     it 'should remove entry at index from entries' do
       expect_update [['test','active']]
-      @db.remove 0
+      @db.remove 1
       @saved.must_equal []
+    end
+
+    it 'should raise ArgumentError if invalid index given' do
+      expect_update [['test','active']]
+      assert_raises ArgumentError do
+        @db.remove 0
+      end
     end
   end
 
-  describe :update do
-    it 'should update entry at index with new data' do
+  describe :update_desc do
+    it 'should update entry at index with new description' do
       expect_update [['test','active']]
-      @db.update 0, 'test2', 'completed'
-      @saved.must_equal [['test2','completed']]
-    end
-
-    it 'should not change description if nil given' do
-      expect_update [['test','active']]
-      @db.update 0, nil, 'completed'
-      @saved.must_equal [['test','completed']]
-    end
-
-    it 'should not change status if nil given' do
-      expect_update [['test','active']]
-      @db.update 0, 'test2', nil
+      @db.update_desc 1, 'test2'
       @saved.must_equal [['test2','active']]
     end
 
     it 'should raise ArgumentError if invalid index given' do
       expect_update [['test','active']]
       assert_raises ArgumentError do
-        @db.update(-1, nil, nil)
+        @db.update_desc(2, 'test2')
       end
+    end
+  end
+
+  describe :complete do
+    it 'should change status to completed' do
+      expect_update [['test','active']]
+      @db.complete 1
+      @saved.must_equal [['test','completed']]
+    end
+
+    it 'should raise ArgumentError if invalid index given' do
       expect_update [['test','active']]
       assert_raises ArgumentError do
-        @db.update(1, nil, nil)
+        @db.complete(2)
+      end
+    end
+  end
+
+  describe :uncomplete do
+    it 'should change status to active' do
+      expect_update [['test','completed']]
+      @db.uncomplete 1
+      @saved.must_equal [['test','active']]
+    end
+
+    it 'should raise ArgumentError if invalid index given' do
+      expect_update [['test','active']]
+      assert_raises ArgumentError do
+        @db.uncomplete(2)
       end
     end
   end
@@ -73,7 +93,7 @@ describe Todo::StoreDb do
   describe :move do
     it 'should move entry at index to new index' do
       expect_update [['1','a'],['2','a'],['3','a']]
-      @db.move 0, 1
+      @db.move 1, 2
       @saved.must_equal [['2','a'],['1','a'],['3','a']]
     end
 
@@ -84,15 +104,15 @@ describe Todo::StoreDb do
       end
       expect_update [['1','a'],['2','a'],['3','a']]
       assert_raises ArgumentError do
-        @db.move 3, 1
+        @db.move 4, 2
       end
       expect_update [['1','a'],['2','a'],['3','a']]
       assert_raises ArgumentError do
-        @db.move 0, -1
+        @db.move 1, -1
       end
       expect_update [['1','a'],['2','a'],['3','a']]
       assert_raises ArgumentError do
-        @db.move 0, 3
+        @db.move 1, 4
       end
     end
   end
