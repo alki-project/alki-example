@@ -1,9 +1,5 @@
 Alki do
-  set(:environment) { ENV['TODO_ENV'] || 'development' }
-  set(:development?){ environment == 'development' }
-
-  mount(:reloader, 'alki/reload'){ set(:enable) { development? } }
-  mount :console, 'alki/console', name: 'todo'
+  try_mount :reloader, 'alki/reload', enable: true
 
   load :settings
 

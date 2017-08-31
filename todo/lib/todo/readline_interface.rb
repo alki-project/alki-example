@@ -13,6 +13,10 @@ module Todo
       end
     end
 
+    def strikethrough(string)
+      "\e[9m#{string}\e[0m"
+    end
+
     def echo(msg)
       puts msg
     end

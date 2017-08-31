@@ -1,4 +1,6 @@
 source "https://rubygems.org"
-gem 'alki'
+
+gemspec
+
 gem 'alki-console'
 gem 'alki-reload'

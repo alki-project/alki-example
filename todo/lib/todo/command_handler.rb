@@ -25,45 +25,44 @@ module Todo
     private
 
     def print(term)
-      @db.all.each.with_index do |(msg,status),i|
+      @db.all.each do |(id,desc,status)|
         if status == "completed"
-          # Strikethrough msg
-          msg = "\e[9m#{msg}\e[0m"
+          desc = term.strikethrough desc
         end
-        term.echo "#{i+1}. #{msg}"
+        term.echo "#{id}. #{desc}"
       end
     end
 
-    def add(msg)
-      @db.add(msg,"active")
+    def add(desc)
+      @db.add desc
     end
 
-    def edit(id,msg)
-      @db.update(id.to_i-1,msg,nil)
+    def edit(id,desc)
+      @db.update_desc(id,desc)
     end
 
     def complete(id)
-      @db.update(id.to_i-1,nil,"completed")
+      @db.complete id
     end
     
     def uncomplete(id)
-      @db.update(id.to_i-1,nil,"active")
+      @db.uncomplete id
     end
 
     def remove(id)
-      @db.remove(id.to_i-1)
+      @db.remove id
     end
 
     def move(from,to)
-      @db.move(from.to_i-1,to.to_i-1)
+      @db.move from, to
     end
 
     def help(term)
       term.echo <<-END.gsub(/^ */,'')
         All commands can be shortened to their first letters
         print
-        add <msg>
-        edit <id> <msg>
+        add <description>
+        edit <id> <description>
         complete <id>
         uncomplete <id>
         remove <id>
