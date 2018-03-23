@@ -1,0 +1,16 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    alki-loader (0.2.3)
+      alki-support (~> 0.7)
+    alki-support (0.7.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  alki-loader
+  alki-support
+
+BUNDLED WITH
+   1.15.4
