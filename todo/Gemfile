@@ -5,3 +5,4 @@ gemspec
 gem 'alki-console'
 gem 'alki-reload'
 gem 'alki-testing'
+gem 'rake'

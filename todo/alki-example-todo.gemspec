@@ -15,6 +15,6 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_dependency 'alki', '~> 0.12.1'
+  spec.add_dependency 'alki', '~> 0.13.3'
 end
 
