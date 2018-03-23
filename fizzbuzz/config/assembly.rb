@@ -1,5 +1,4 @@
 Alki do
-  mount :console, 'alki/console', name: 'fizzbuzz'
   load :settings
   load :handlers
 
