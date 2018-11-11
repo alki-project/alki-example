@@ -43,7 +43,7 @@ GEM
       alki-support (~> 0.7, >= 0.7.1)
       concurrent-ruby (~> 1.0)
       ice_nine (~> 0.11)
-    alki-dsl (0.6.1)
+    alki-dsl (0.6.0)
       alki-loader (~> 0.2, >= 0.2.4)
       alki-support (~> 0.7, >= 0.7.1)
     alki-loader (0.2.5)
@@ -162,7 +162,7 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
-    uglifier (4.1.19)
+    uglifier (4.1.20)
       execjs (>= 0.3.0, < 3)
     web-console (3.7.0)
       actionview (>= 5.0)
@@ -195,4 +195,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.16.1
+   1.17.1
